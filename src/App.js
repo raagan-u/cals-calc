@@ -15,7 +15,7 @@ import ShowNavbar from './components/ShowNavbar';
 
 
 function App() {
-  const url = "http://localhost:3500/api/documents"
+  const url = "http://localhost:3500/api/meal/createMeal"
   async function AddMeal  (meal) {
     const result = await axios.post(url, meal);
     window.alert(result.data.message);

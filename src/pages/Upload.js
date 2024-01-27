@@ -4,14 +4,14 @@ import { useState } from "react";
 const Meal = ({ onAdd }) => {
 	const [meal_id, setMI] = useState(0);
 	const [meal_name, setName] = useState('');
-	const [cals, setCals] = useState(0);
+	const [calories, setCals] = useState(0);
 	const [carbs, setCarbs] = useState(0);
-	const [prot, setProt] = useState(0);
+	const [prots, setProt] = useState(0);
 	const [fats, setFat] = useState(0);
 	
 	const onSubmit = (e) => {
 		e.preventDefault();
-		onAdd({ meal_id, meal_name, cals, carbs, prot, fats })
+		onAdd({ meal_id, meal_name, calories, carbs, prots, fats })
 	}
 
 	return (

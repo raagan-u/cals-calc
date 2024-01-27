@@ -8,7 +8,7 @@ const logSchema = new Schema({
 	meal_id: {
 		type: Number,
 		required: true,
-		unique: true,
+		unique: false,
 	},
 	meal_name: {
 		type: String,
