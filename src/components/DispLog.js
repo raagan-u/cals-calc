@@ -12,7 +12,7 @@ class DispLog extends Component {
   
   
   componentDidMount() {
-    axios.get('http://localhost:3500/api/log').then((resp)=> {
+    axios.get('http://localhost:3500/api/meal/getLogs').then((resp)=> {
 	  this.setState({ data: resp.data });
 	})
   }

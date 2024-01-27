@@ -23,8 +23,15 @@ const Navbar = () => {
         <li className="nav-item">
 		<Link className="nav-link" to="/View">ViewMeals</Link>
         </li>
+        <li className="nav-item">
+		<Link className="nav-link" to="/BodyW">BodyW</Link>
+        </li>
+        <li className="nav-item">
+		<Link className="nav-link" to="/Workouts">Workouts</Link>
+        </li>
       </ul>
     </div>
+    <button id="sign-out" type="submit" class="fctl-btn">LOG OUT</button>
   </div>
 </nav>		
 		</div>

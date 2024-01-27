@@ -11,3 +11,114 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fctl {
+  align-items: center;
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+} 
+.fctl-macros {
+  height: 30px;
+  width: 50px;
+  align-items: center;
+  justify-content: space-between ;
+  margin :10px;
+}
+
+.fctl-btn {
+  width: 215px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+/* Set the background color of the navbar to black */
+.navbar {
+  background-color: #122b44 !important;
+}
+
+/* Center align the navigation links */
+.navbar-collapse {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Style the navigation links (change the text color, for example) */
+.nav-link {
+  color: white; /* Change the color to white or any color of your choice */
+  font-size: large;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px;
+  height: 250px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
+.card:hover {
+  height: 275px;
+  width: 350px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content h2 {
+  margin: 0;
+  color: #333;
+}
+
+.card-content p {
+  margin: 8px 0;
+  color: #666;
+}
+
+
+.hztl-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 4px;
+  width: 98%;
+  height: 275px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+}
+
+.login_card {
+  background-color: #363333;
+  text-emphasis-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 15px;
+  padding: 20px 20px;
+  border: 1px;
+  width: 50%;
+  height: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+.container {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.txt-labels {
+  color: white;
+}

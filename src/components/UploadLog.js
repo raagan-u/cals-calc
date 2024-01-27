@@ -1,5 +1,4 @@
-import React, {Component} from "react";
-import Moment from "react-moment";
+import React, {Component} from "react";	
 import axios from "axios";
 class UploadLog extends Component {
 	state = {
@@ -11,7 +10,7 @@ class UploadLog extends Component {
   
 	componentDidMount() {
 		axios.get(
-			"http://localhost:3500/api/documents"
+			"http://localhost:3500/api/meal/getMeals"
 		)
 		.then(resp => {
 			let teamsFromApi = resp.data.map(team => {
@@ -35,7 +34,7 @@ class UploadLog extends Component {
 		e.preventDefault();
 		this.varr1 = JSON.parse(this.state.selectedTeam);
 		this.varr1["datetime"] = this.state.datetime;
-		axios.post("http://localhost:3500/api/log", this.varr1).then(
+		axios.post("http://localhost:3500/api/meal/addLog", this.varr1).then(
 			resp => {
 				window.alert(resp.data.message);
 				window.location.reload(true);

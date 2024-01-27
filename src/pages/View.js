@@ -12,8 +12,8 @@ class View extends Component {
   
   
   componentDidMount() {
-    axios.get('http://localhost:3500/api/documents').then((resp)=> {
-	  this.setState({ data: resp.data });
+    axios.get('http://localhost:3500/api/meal/getMeals').then((resp)=> {
+	  this.setState({ data: resp.data })
 	})
   }
 
