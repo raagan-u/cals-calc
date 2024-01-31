@@ -12,14 +12,14 @@ const createMeal = async function (req, res) {
 	  console.log("check2 value ", check2)
       if( check2 === 0 ) {
         const result = await Meal.create(document)
-        res.send({ success: true, insertedId: result.insertedId, message: "meal added!"});
+        res.status(200).json({ success: true, insertedId: result.insertedId, message: "meal added!"});
       } else {
         res.send({ success: false, message: "meal already exists!!"});
       }
     } else {
       res.send({ success: false, message: "meal_id already taken"});
     }
-	res.status(200).send({success: true, msg: "created"})
+
   } catch (err) {
     console.error('Error creating document:', err);
     res.status(500).send({ success: false, error: err.message });
@@ -35,7 +35,7 @@ const addLog = async function (req,res) {
 	document["_id"] = customId
   	console.log(document);
 	try {
-		const result = await Meal.create(document);
+		const result = await Log.create(document);
 		res.send({ success: true, message: "meal logged!" });
 	} catch (err) {
 		console.error('Error creating document:', err);

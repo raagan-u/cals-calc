@@ -19,14 +19,14 @@ class View extends Component {
 
   renderTableData() {
     return this.state.data.map((item) => {
-      const { _id, meal_id, meal_name, cals, carbs, prot,fats } = item;
+      const { _id, meal_id, meal_name, calories, carbs, prots,fats } = item;
       return (
         <tr key={_id}>
           <td>{meal_id}</td>
           <td>{meal_name}</td>
-          <td>{cals}</td>
+          <td>{calories}</td>
 		      <td>{carbs}</td>
-		      <td>{prot}</td>
+		      <td>{prots}</td>
 		      <td>{fats}</td>
         </tr>
       );

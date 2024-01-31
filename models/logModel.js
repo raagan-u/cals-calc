@@ -1,5 +1,4 @@
 const mongoose = require("mongoose")
-const Meal = require("./mealModel")
 
 const Schema = mongoose.Schema
 
