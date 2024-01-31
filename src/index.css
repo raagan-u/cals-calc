@@ -67,8 +67,8 @@ code {
 }
 
 .card:hover {
-  height: 275px;
-  width: 350px;
+  height: 255px;
+  width: 305px;
 }
 
 .card-content {
