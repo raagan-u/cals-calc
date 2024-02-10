@@ -1,15 +1,27 @@
-const LoginVal = () => {
+import { useState } from "react"
+
+const Login = () => {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+		
+	const handleSubmit = async(e) => {
+		e.preventDefault()
+		console.log(email,password)
+	}
+		
 	return (
-		<div class="container">
-		<div class="login_card">
-			<form>
-				<p><label class="txt-labels">Username </label> <input type="text" id="uname"></input><br/><br/></p>
-				<p><label class="txt-labels">Password </label> <input type="password" id="password"></input><br/><br/></p>
-				<button type="submit" class="fctl-btn">LOGIN</button>
-			</form>
-		</div>
-		</div>
+		<form className="login" onSubmit={handleSubmit}>
+			<h1>SIGN UP</h1>
+		
+			<label>Email : </label>
+			<input type="email" onChange={(e) => setEmail(e.target.value)} value={email} /><br />
+		
+			<label>Password : </label>
+			<input type="password" onChange={(e) => setPassword(e.target.value)} value={password} /><br />
+		
+			<button>LOGIN</button>
+		</form>
 	)
 }
 
-export default LoginVal;
+export default Login;

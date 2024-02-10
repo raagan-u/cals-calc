@@ -31,7 +31,7 @@ const Navbar = () => {
         </li>
       </ul>
     </div>
-    <button id="sign-out" type="submit" class="fctl-btn">LOG OUT</button>
+    <button id="sign-out" type="submit" className="fctl-btn">LOG OUT</button>
   </div>
 </nav>		
 		</div>
