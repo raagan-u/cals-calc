@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class View extends Component {
+class DispMeal extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,7 +13,7 @@ class View extends Component {
   
   componentDidMount() {
     axios.get('http://localhost:3500/api/meal/getMeals').then((resp)=> {
-	  this.setState({ data: resp.data })
+	  this.setState({ data: resp.data });
 	})
   }
 
@@ -36,10 +36,11 @@ class View extends Component {
   render() {
     return (
       <div>
-        <h1>MEAL DATABASE</h1>
-        <table align="center">
+        <h1>MEAL DB</h1>
+        <table align='center'>
           <thead>
             <tr>
+				<th>Datetime</th>
             	<th>Meal ID</th>
             	<th>Meal Name</th>
             	<th>Calories</th>
@@ -59,4 +60,4 @@ class View extends Component {
     }
 }
 
-export default View;
+export default DispMeal;

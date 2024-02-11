@@ -1,13 +1,10 @@
 import './App.css';
 import Upload from './pages/Upload';
-import View from './pages/View';
 import Home from './pages/Home';
 import Log from './pages/Log';
-import BodyW from './pages/BodyW';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Workout from './pages/Workouts';
 import Login from './pages/Login';
 import ShowNavbar from './components/ShowNavbar';
 import SignUp from './pages/SignUp';
@@ -31,11 +28,8 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Signup' element={<SignUp />} />
           <Route path='/' element={<Home />} />
-          <Route path='/UploadMeal' element={<Upload onAdd={AddMeal}/>} />
-          <Route path='/View' element={<View />} />
+          <Route path='/Meal' element={<Upload onAdd={AddMeal}/>} />
           <Route path='/Log' element={<Log  />} />
-          <Route path='/BodyW' element={<BodyW />} />
-          <Route path='/Workouts' element={<Workout />} />
           <Route path='*' element={<h1>404 PAGE NOT FOUND</h1>} />
         </Routes>
       </Router>

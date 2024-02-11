@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import  DispMeal  from "../components/DispMeal"
 
 const Meal = ({ onAdd }) => {
 	const [meal_id, setMI] = useState(0);
@@ -25,6 +26,7 @@ const Meal = ({ onAdd }) => {
 				<input step='0.1' type='number' placeholder="FATS" className="fctl-macros" onChange={(e) => setFat(e.target.value)} /><br />
 				<input type='submit' value='ADD MEAL' className="fctl-btn" />
 			</form>
+			<DispMeal />
 		</div>
 	)
 }

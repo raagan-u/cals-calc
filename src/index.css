@@ -122,3 +122,8 @@ code {
 .txt-labels {
   color: white;
 }
+
+.btn {
+  background-color: aliceblue;
+  border-radius: 5px;
+}
