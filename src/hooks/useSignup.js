@@ -20,7 +20,7 @@ export const useSignup = () => {
 
 		if(!resp.ok) {
 			setIsLoading(false)
-			setError(true)
+			setError(json.error)
 		}
 
 		if(resp.ok) {
@@ -33,5 +33,5 @@ export const useSignup = () => {
 
 	}
 
-	return {signup, isLoading, error }
+	return {signup, error, isLoading }
 }

@@ -17,10 +17,10 @@ const SignUp = () => {
 			<h1>SIGN UP</h1>
 
 			<label>Email : </label>
-			<input type="email" onChange={(e) => setEmail(e.target.value)} value={email} />
+			<input type="email" onChange={(e) => setEmail(e.target.value)} value={email} /><br />
 
 			<label>Password : </label>
-			<input type="password" onChange={(e) => setPassword(e.target.value)} value={password} />
+			<input type="password" onChange={(e) => setPassword(e.target.value)} value={password} /><br />
 
 			<button disabled={isLoading}>SIGN UP</button>
 			{error && <div className="error">{error}</div>}
