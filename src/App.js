@@ -6,7 +6,6 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './pages/Login';
-import ShowNavbar from './components/ShowNavbar';
 import SignUp from './pages/SignUp';
 
 
@@ -23,7 +22,7 @@ function App() {
   return (
     <div className="App">
     	<Router>
-        <ShowNavbar><Navbar /></ShowNavbar>
+        <Navbar />
         <Routes>
           <Route path='/Login' element={<Login />} />
           <Route path='/Signup' element={<SignUp />} />

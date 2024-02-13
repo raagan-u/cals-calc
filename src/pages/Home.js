@@ -7,9 +7,9 @@ const Home =  () => {
 		axios.get("http://localhost:3500/api/meal/getLogs").then(
 			resp => {
 				resp.data.map( (item, index) => {
-					cals += parseFloat(item.cals);
+					cals += parseFloat(item.calories);
 					carbs += parseFloat(item.carbs);
-					prots += parseFloat(item.prot);
+					prots += parseFloat(item.prots);
 					fats += parseFloat(item.fats);
 				})
 				setArr([cals, carbs, prots, fats]);
