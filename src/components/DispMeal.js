@@ -1,63 +1,28 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import { useEffect } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useMealsContext } from "../hooks/useMealContext"
+import MealDetails from "./MealDetails";
+const DispMeal = () => {
+	const { user } = useAuthContext();
+	const { meals, dispatch } = useMealsContext();
+	useEffect(()=> {}, [])
+	const ExecuteFunc = () => {
+		if(meals) {
+			return(
+				<div>
+					{meals && meals.map((item,index)=> (
+						<MealDetails key={item._id} meal={item} />
+					))}
+				</div>
+			)
+		}
+	}
 
-class DispMeal extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: [] 
-    };
-  }
-
-  
-  
-  componentDidMount() {
-    axios.get('http://localhost:3500/api/meal/getMeals').then((resp)=> {
-	  this.setState({ data: resp.data });
-	})
-  }
-
-  renderTableData() {
-    return this.state.data.map((item) => {
-      const { _id, meal_id, meal_name, calories, carbs, prots,fats } = item;
-      return (
-        <tr key={_id}>
-          <td>{meal_id}</td>
-          <td>{meal_name}</td>
-          <td>{calories}</td>
-		      <td>{carbs}</td>
-		      <td>{prots}</td>
-		      <td>{fats}</td>
-        </tr>
-      );
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>MEAL DB</h1>
-        <table align='center'>
-          <thead>
-            <tr>
-				<th>Datetime</th>
-            	<th>Meal ID</th>
-            	<th>Meal Name</th>
-            	<th>Calories</th>
-				      <th>Carbs</th>
-				      <th>Proteins</th>
-				      <th>Fats</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderTableData()}
-          </tbody>
-        </table>
-      </div>
-    );
-
-    
-    }
+	return (
+		<div>
+			{user && ExecuteFunc()}
+		</div>
+	)
 }
 
 export default DispMeal;

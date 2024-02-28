@@ -7,13 +7,21 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import { useAuthContext } from './hooks/useAuthContext';
+import { useMealsContext } from './hooks/useMealContext';
 
 
 
 function App() {
+  const { user } = useAuthContext()
+  const { meals, dispatch } = useMealsContext()
   const url = "http://localhost:3500/api/meal/createMeal"
   async function AddMeal  (meal) {
-    const result = await axios.post(url, meal);
+    if(!user) return
+    const result = await axios.post(url, meal, {headers: {
+      "Authorization": `Bearer ${user.token}`
+    }});
+    dispatch({type: "CREATE_MEAL", payload: meal})
     window.alert(result.data.message);
   }
 

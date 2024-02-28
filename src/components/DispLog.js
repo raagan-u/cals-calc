@@ -1,64 +1,25 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-
-class DispLog extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: [] 
-    };
-  }
-
-  
-  
-  componentDidMount() {
-    axios.get('http://localhost:3500/api/meal/getLogs').then((resp)=> {
-	  this.setState({ data: resp.data });
+import { useAuthContext } from "../hooks/useAuthContext";
+import axios from "axios";
+import LogDetails  from "./LogDetails"
+import { useState } from "react";
+const DispLog = () => {
+	const { user } = useAuthContext()
+	const [logs, setLogs] = useState([])
+	if(!user) return
+	
+	axios.get("http://localhost:3500/api/meal/getLogs", { headers : {
+		Authorization: `Bearer ${user.token}`
+	}}).then((resp) => {
+		setLogs(resp.data)
 	})
-  }
 
-  renderTableData() {
-    return this.state.data.map((item) => {
-      const { _id, datetime, meal_id, meal_name, calories, carbs, prots,fats } = item;
-      return (
-        <tr key={_id}>
-			<td>{datetime}</td>
-          <td>{meal_id}</td>
-          <td>{meal_name}</td>
-          <td>{calories}</td>
-		      <td>{carbs}</td>
-		      <td>{prots}</td>
-		      <td>{fats}</td>
-        </tr>
-      );
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>LOG HISTORY</h1>
-        <table align='center'>
-          <thead>
-            <tr>
-				<th>Datetime</th>
-            	<th>Meal ID</th>
-            	<th>Meal Name</th>
-            	<th>Calories</th>
-				      <th>Carbs</th>
-				      <th>Proteins</th>
-				      <th>Fats</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderTableData()}
-          </tbody>
-        </table>
-      </div>
-    );
-
-    
-    }
+	return(
+		<div>
+			{logs && logs.map((item,index)=> (
+						<LogDetails key={item._id} meal={item} />
+					))}
+		</div>
+	)
 }
 
-export default DispLog;
+export default DispLog

@@ -1,21 +1,40 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import {  useAuthContext } from "../hooks/useAuthContext"
+import { useMealsContext } from "../hooks/useMealContext";
 const Home =  () => {
 	const [arr, setArr] = useState([]);
+	const { user } = useAuthContext();
+	const { meals, dispatch } = useMealsContext();
+
 	useEffect(()=> {
-		var cals=0,carbs=0,prots=0,fats=0;
-		axios.get("http://localhost:3500/api/meal/getLogs").then(
-			resp => {
-				resp.data.map( (item, index) => {
-					cals += parseFloat(item.calories);
-					carbs += parseFloat(item.carbs);
-					prots += parseFloat(item.prots);
-					fats += parseFloat(item.fats);
-				})
-				setArr([cals, carbs, prots, fats]);
-			}
-		)
-	}, []);
+		const InitData = async () => {
+			var cals=0,carbs=0,prots=0,fats=0;
+			axios.get("http://localhost:3500/api/meal/getLogs", {
+				headers: { Authorization: `Bearer ${user.token}` }
+			}).then(
+				resp=> {
+					resp.data.map( (item, index) => {
+						cals += parseFloat(item.calories);
+						carbs += parseFloat(item.carbs);
+						prots += parseFloat(item.prots);
+						fats += parseFloat(item.fats);
+					})
+					setArr([cals, carbs, prots, fats]);}
+			)
+
+			axios.get("http://localhost:3500/api/meal/getMeals", {
+				headers: { Authorization: `Bearer ${user.token}` }
+			}).then(
+				resp => {
+					dispatch({type: "SET_MEALS", payload: resp.data})				
+				}
+			)
+		}
+		if(user) {
+			InitData();
+		}
+	}, [user]);
 	
 
 	return (

@@ -5,6 +5,9 @@ const router = express.Router()
 const Meal = require("../models/mealModel")
 
 const {createMeal, getMeals, addLog, getLogs} = require("../controllers/mealController")
+const requireAuth = require("../middleware/requireAuth")
+
+router.use(requireAuth)
 
 router.post("/createMeal", createMeal)
 
