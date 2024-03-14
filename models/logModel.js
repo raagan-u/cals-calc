@@ -12,7 +12,7 @@ const logSchema = new Schema({
 	meal_name: {
 		type: String,
 		required: true,
-		unique: true,
+		unique: false,
 	},
 	calories: {
 		type: Number,

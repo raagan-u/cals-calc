@@ -14,10 +14,10 @@ const createMeal = async function (req, res) {
         const result = await Meal.create(document)
         res.status(200).json({ success: true, insertedId: result.insertedId, message: "meal added!"});
       } else {
-        res.send({ success: false, message: "meal already exists!!"});
+        res.status(200).json({ success: false, message: "meal already exists!!"});
       }
     } else {
-      res.send({ success: false, message: "meal_id already taken"});
+      res.status(200).json({ success: false, message: "meal_id already taken"});
     }
 
   } catch (err) {
@@ -44,6 +44,7 @@ const addLog = async function (req,res) {
 }
 const getLogs = async function (req,res) {
 	const logs = await Log.find()
+	res.set('Access-Control-Allow-Origin', '*');
 	res.json(logs)
 }
 

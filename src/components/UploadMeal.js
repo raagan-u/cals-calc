@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import  DispMeal  from "../components/DispMeal"
 
-const Meal = ({ onAdd }) => {
+const UploadMeal = ({ onAdd }) => {
 	const [meal_id, setMI] = useState(0);
 	const [meal_name, setName] = useState('');
 	const [calories, setCals] = useState(0);
@@ -24,11 +23,10 @@ const Meal = ({ onAdd }) => {
 				<input step='0.1' type='number' placeholder="PROTEINS" className="fctl-macros" onChange={(e) => setProt(e.target.value)} />
 				<input step='0.1' type='number' placeholder="CARBS" className="fctl-macros" onChange={(e) => setCarbs(e.target.value)} />
 				<input step='0.1' type='number' placeholder="FATS" className="fctl-macros" onChange={(e) => setFat(e.target.value)} /><br />
-				<input type='submit' value='ADD MEAL' className="fctl-btn" />
+				<button className="submit">SUBMIT</button>
 			</form>
-			<DispMeal />
 		</div>
 	)
 }
 
-export default Meal
+export default UploadMeal

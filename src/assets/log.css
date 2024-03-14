@@ -1,0 +1,31 @@
+.wrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.details {
+	flex: 1;
+	margin-left: 100px;
+	color: white;
+}
+
+.upload {
+	width: 420px;
+	justify-content: center;
+	backdrop-filter: blur(20px);
+	display: flex;
+	flex: column;
+	padding: 40px;
+	border: solid;
+	border-top: 30px solid;
+	border-left: 3px solid;
+	border-right: 3px solid;
+	border-radius: 20px;
+}
+
+.btn-cont {
+	display: block;
+	margin: 50px;
+	padding: 10px;
+	justify-content: space-around;
+}

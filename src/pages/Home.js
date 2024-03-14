@@ -6,8 +6,8 @@ const Home =  () => {
 	const [arr, setArr] = useState([]);
 	const { user } = useAuthContext();
 	const { meals, dispatch } = useMealsContext();
-
 	useEffect(()=> {
+		if(!user) return
 		const InitData = async () => {
 			var cals=0,carbs=0,prots=0,fats=0;
 			axios.get("http://localhost:3500/api/meal/getLogs", {
@@ -36,7 +36,7 @@ const Home =  () => {
 		}
 	}, [user]);
 	
-
+	if (!user) return
 	return (
 		<div>
 			<div className="cards">

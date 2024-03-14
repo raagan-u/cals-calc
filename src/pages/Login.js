@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useLogin } from "../hooks/useLogin"
+import "../assets/login.css"
+import { Link } from "react-router-dom"
 
 const Login = () => {
 	const [email, setEmail] = useState('')
@@ -12,18 +14,22 @@ const Login = () => {
 	}
 		
 	return (
-		<form className="login" onSubmit={handleSubmit}>
-			<h1>LOGIN</h1>
-		
-			<label>Email : </label>
-			<input type="email" onChange={(e) => setEmail(e.target.value)} value={email} /><br />
-		
-			<label>Password : </label>
-			<input type="password" onChange={(e) => setPassword(e.target.value)} value={password} /><br />
-		
-			<button disabled={isLoading}>LOGIN</button>
-			{error && <div className="error">{error}</div>}
-		</form>
+		<body>
+			<div className="container">
+				<form className="login" onSubmit={handleSubmit}>
+
+					<div className="input-box">
+						<input type="email"  placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} value={email} />
+					</div>
+					<div className="input-box">
+						<input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
+					</div>
+					<button disabled={isLoading}>Login</button>
+					{error && <div className="error">{error}</div>}
+					<div className="signup"><p>Not Registered? </p><Link to="/signup"><button>Sign Up</button></Link></div>
+				</form>	
+			</div>
+		</body>
 	)
 }
 

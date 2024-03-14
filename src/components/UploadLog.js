@@ -3,7 +3,7 @@ import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useMealsContext } from "../hooks/useMealContext";
 
-const UploadLog = () => {
+const UploadLog = ({ onAdded }) => {
   const [teams, setTeams] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState("");
   const [datetime, setDatetime] = useState("");
@@ -41,7 +41,8 @@ const UploadLog = () => {
     })
     .then(resp => {
       window.alert(resp.data.message);
-      window.location.reload(true);
+      onAdded();
+	  
     })
     .catch(error => {
       console.error("Error logging meal:", error);
@@ -51,9 +52,9 @@ const UploadLog = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form className="input-box" onSubmit={onSubmit}>
         <input type="datetime-local" onChange={e => setDatetime(e.target.value)} /><br />
-        <select
+        <select className="select-box"
           value={selectedTeam}
           onChange={e => {
             setSelectedTeam(e.target.value);
@@ -72,7 +73,7 @@ const UploadLog = () => {
         <div style={{ color: "red", marginTop: "5px" }}>
           {validationError}
         </div>
-        <input type="submit" value="LOG IT" />
+        <button className="submit">SUBMIT</button>
       </form>
     </div>
   );
